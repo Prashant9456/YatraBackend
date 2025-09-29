@@ -1,0 +1,57 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: cholebhaturewala
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: yatra
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: yatra-backend
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+build:
+  esbuild: false
+  # Uncomment to easily set up a custom domain. Read the docs for more details:
+  # https://www.serverless.com/framework/docs/providers/aws/guide/domains
+  # domain: api.example.com
+
+
+plugins:
+  - serverless-offline
+
+functions:
+  hello:
+    handler: dist/handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+  login:
+    handler: dist/login/login.login
+    events:
+      - httpApi:
+          path: /login
+          method: post
+  register:
+    handler: dist/login/auth.register
+    events:
+      - httpApi:
+          path: /register
+          method: post
+  resetPasswordMail:
+    handler: dist/login/auth.resetPasswordMail
+    events:
+      - httpApi:
+          path: /reset-password
+          method: post
+  verifyOtp:
+    handler: dist/login/auth.verifyOtp
+    events:
+      - httpApi:
+          path: /verify-otp
+          method: post
+  changePassword:
+    handler: dist/login/auth.changePassword
+    events:
+      - httpApi:
+          path: /change-password
+          method: post

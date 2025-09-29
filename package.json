@@ -1,0 +1,38 @@
+{
+  "name": "yatra-backend",
+  "version": "1.0.0",
+  "description": "The Yatra Backend is a scalable and modular server-side application designed to power the Yatra platform. It provides APIs, authentication, and data management capabilities for handling travel-related services such as user accounts, bookings, itineraries, and payments.",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && tsc",
+    "start": "rimraf dist && tsc && npx serverless offline",
+    "offline": "serverless offline",
+    "deploy": "serverless deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-lambda": "^1.0.7",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^17.2.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.14",
+    "pg": "^8.12.0",
+    "rimraf": "^6.0.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.137",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.14.9",
+    "@types/nodemailer": "^6.4.15",
+    "@types/pg": "^8.11.6",
+    "@types/uuid": "^10.0.0",
+    "esbuild": "^0.21.5",
+    "serverless-offline": "^13.8.1",
+    "typescript": "^5.5.4"
+  }
+}
