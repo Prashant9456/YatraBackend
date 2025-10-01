@@ -55,13 +55,13 @@ const login = async (event) => {
             };
         }
         const secret = process.env.JWT_SECRET || process.env.AUTH_SECRET;
-        if (!secret) {
-            return {
-                statusCode: 500,
-                headers: corsHeaders,
-                body: JSON.stringify({ error: 'JWT secret not configured' }),
-            };
-        }
+        // if (!secret) {
+        //   return {
+        //     statusCode: 500,
+        //     headers: corsHeaders,
+        //     body: JSON.stringify({ error: 'JWT secret not configured' }),
+        //   };
+        // }
         const token = (0, jwt_1.createJwtToken)({ sub: user.id, email: user.email }, (process.env.JWT_EXPIRES_IN || '1d'));
         const responseBody = {
             token,
